@@ -1,0 +1,42 @@
+
+05/01/2015
+
+HCN4 commands: 
+
+python gene_translate.py --ref=/home/vbansal/Public/tools/reference-genomes/ncbi37.fa --model=../refseq.genes.ncbi37 --type=all --gene=HCN4 --out=HCN4.all 
+python analyse_gene_mutations.py HCN4.all /media/drive2/Variant-call-datasets/65Kexomes-DGM.v0.1/ExAC.r0.1.sites.vep.vcf.gz controls missense
+python analyse_gene_mutations.py HCN4.all /media/drive2/Variant-call-datasets/65Kexomes-DGM.v0.1/ExAC.r0.1.sites.vep.vcf.gz controls S/NS
+
+
+## Exon 4 has 6 of the disease mutations, Exon 5 has 1 and Exon 7 has 1 
+## Exon 4 is most strongly biased against missense, Exon 7 slightly.. | Exon 1 and 8 have no bias... 
+
+## Exon 7 = 11 , 14 , 29758 , 11473 ] = 0.0031107  | exon4 = 21 , 9 , 16699 , 32259 = 0.0000692063
+## assess additional signal from allele frequency spectrum.... 
+
+
+03/29/2015 
+
+## identify genes where missense mutations in only some regions are below expectation..
+
+## add function to take dbSNFP file and add polyphen/conservation scores to each missense mutation in GENE.missense.all file ## transcript model is important 
+python read_dbSNFP.py MLL2  ~/Public/tools/reference-genomes/ncbi37.fa
+## combine this with gene_translate or run afterwards...
+
+python gene_translate.py --ref=/home/vbansal/Public/tools/reference-genomes/ncbi37.fa --model=../refseq.genes.ncbi37 --type=stop --gene=MLL2 --out=MLL2.stopgain.all
+python analyse_gene_mutations.py MLL2.stopgain.all /media/drive2/Kabuki_mutations/MUTATION_LIST
+
+## code to explore space of all possible coding mutations per gene/transcript | annotate using mutation rates and known mutations 
+## gene_translate should output chr:pos for all mutations so that we can match real mutations (from ExAc) without any annotation 
+
+gene_translate.py: (1) output coding sequence of exons of each gene and the translation as well. can be used to output set of all coding mutations per transcript (all stop, all missense,etc), study frameshift mutations...
+
+read_fasta_bychrom.py: read fasta file and build index if it doesnt exist, if index exists, it will read sequence of only that chromosome 
+
+read_muttable.py: read 64 trimer mutation matrix file and output hashtable 
+
+multinomial_test.py: calculate p-value of mutation distribution across exons of a gene relative to mutation rate matrix 
+
+
+
+

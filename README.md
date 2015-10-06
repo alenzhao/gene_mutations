@@ -1,13 +1,13 @@
 
 
-# CODE to analyze coding mutations per gene and identify those mutations/regions that are likely to be disease associated ##
+## CODE to analyze coding mutations per gene and identify those mutations/regions that are likely to be disease associated ##
 
 1. Regions of a gene where the number of observed missense mutations (in a large sample of sequenced individuals) are significantly below the expected number and frequency are constrained. 
 
 2. Compare the number of observed stop-gain mutations to the expected number of stop gain mutations (using silent mutations as the control) 
 
 
-# 10/05/2015: Outline of tasks accomplished by the code
+### 10/05/2015: Outline of tasks accomplished by the code
 
 1. Output the coding sequence for a given gene X using the reference genome sequence (hg19 version, available from genome.ucsc.edu) and a transcript file (downloadable from genome.ucsc.edu tables, Genes and Gene Prediction Track)
 2. Translate the coding sequence for the gene into the amino acid sequence using the 'codon table' 
@@ -19,18 +19,17 @@ available for download.
 
 03/29/2015 
 
-# identify genes where missense mutations in only some regions are below expectation..
+#### identify genes where missense mutations in only some regions are below expectation..
 
-
-# add function to take dbSNFP file and add polyphen/conservation scores to each missense mutation in GENE.missense.all file ## transcript model is important 
+#### add function to take dbSNFP file and add polyphen/conservation scores to each missense mutation in GENE.missense.all file ## transcript model is important 
 python read\_dbSNFP.py MLL2  ~/Public/tools/reference-genomes/ncbi37.fa
-# combine this with gene\_translate or run afterwards...
+#### combine this with gene\_translate or run afterwards...
 
 python gene\_translate.py --ref=/home/vbansal/Public/tools/reference-genomes/ncbi37.fa --model=../refseq.genes.ncbi37 --type=stop --gene=MLL2 --out=MLL2.stopgain.all
 python analyse\_gene\_mutations.py MLL2.stopgain.all /media/drive2/Kabuki\_mutations/MUTATION\_LIST
 
-# code to explore space of all possible coding mutations per gene/transcript | annotate using mutation rates and known mutations 
-# gene\_translate should output chr:pos for all mutations so that we can match real mutations (from ExAc) without any annotation 
+#### code to explore space of all possible coding mutations per gene/transcript | annotate using mutation rates and known mutations 
+#### gene\_translate should output chr:pos for all mutations so that we can match real mutations (from ExAc) without any annotation 
 
 gene\_translate.py: (1) output coding sequence of exons of each gene and the translation as well. can be used to output set of all coding mutations per transcript (all stop, all missense,etc), study frameshift mutations...
 

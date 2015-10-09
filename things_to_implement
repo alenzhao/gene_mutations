@@ -6,3 +6,5 @@
 3. Frameshift mutations result in a complete change of the amino acid sequence and a new stop codon downstream. In some cases, this can result in a completely new amino acid sequence at the tail end of a gene. Frameshift mutations in combination with alternative splicing can result in new transcripts that can lead to disease. As a result, the impact of frameshift mutations can be different from that of stopgain mutations. See e.g. this paper http://hmg.oxfordjournals.org/content/12/23/3055.full.pdf 
 
 Our goal is to analyze the coding sequence of each gene to identify locations in the gene where a frameshift mutation in combination with alternative splicing can result in a functional transcript that is not impacted by non-sense mediated decay. 
+
+

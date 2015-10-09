@@ -3,8 +3,10 @@
 
 2. For each transcript of a gene, calculate the expected mutation rate of silent mutations, missense mutations and stopgain mutations across the entire gene using the per-base mutation probabilities. Similarly, calculate the observed number of rare silent mutations, missense mutations and stopgain mutations using the Exome VCF file (frequency < 0.001). Compare the count of silent vs missense mutations using the expected rates. Determine if the observed number of missense (stopgain/splicing) mutations is significantly lower than expected. 
 
-3. Frameshift mutations result in a complete change of the amino acid sequence and a new stop codon downstream. In some cases, this can result in a completely new amino acid sequence at the tail end of a gene. Frameshift mutations in combination with alternative splicing can result in new transcripts that can lead to disease. As a result, the impact of frameshift mutations can be different from that of stopgain mutations. See e.g. this paper http://hmg.oxfordjournals.org/content/12/23/3055.full.pdf 
+3. Frameshift mutations result in a complete change of the amino acid sequence and a new stop codon downstream. In some cases, this can result in a completely new amino acid sequence at the tail end of a gene. 
 
-Our goal is to analyze the coding sequence of each gene to identify locations in the gene where a frameshift mutation in combination with alternative splicing can result in a functional transcript that is not impacted by non-sense mediated decay. 
+(i) Frameshift mutations in combination with alternative splicing can result in new transcripts that can lead to disease. As a result, the impact of frameshift mutations can be different from that of stopgain mutations. See e.g. this paper http://hmg.oxfordjournals.org/content/12/23/3055.full.pdf. Our goal is to analyze the coding sequence of each gene to identify locations in the gene where a frameshift mutation in combination with alternative splicing can result in a functional transcript that is not impacted by non-sense mediated decay. 
+
+(ii) combination of a frameshift mutation and a SNP that removes a stop codon (in the frame induced by the frameshift mutation) can result in a long transcript with a novel amino acid sequence. Our goal is identify locations in the coding sequence of genes where potential frameshift mutations in combination with existing SNPs (1000 genomes database) can result in haplotype specific functional effects. This will highlight the importance of using haplotype information for variant annotation. 
 
 

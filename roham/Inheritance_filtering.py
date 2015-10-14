@@ -6,6 +6,7 @@ from __builtin__ import list
 import sys
 from sys import exit
 
+# This Code can filter a VCF file based on a genes list data provided by the autosomal recessive mendelian model, dominant, and also finds the Compound Heterozygotes.
 
 def projectrun(data_file, genes_list_file):
 

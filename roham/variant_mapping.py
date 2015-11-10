@@ -1,5 +1,8 @@
 import numpy as np
 import pandas
+
+#This code will find partially and perefectly matched variants in two vcf files based on reference alleles and alternate alleles.
+
 ref_file="/Users/rohamrazaghi/Documents/vcf/data.vcf"       # path to the individual VCF file
 mut_file="/Users/rohamrazaghi/Documents/vcf/mutations.vcf"  # path to the list of mutation diseases/ second individual
 

@@ -6,7 +6,6 @@ import sys,os
 ## CODED dec 19 2014, simple code to read fasta file, create index allowing to read one chromosome at a time 
 
 ## make index of start positions for each chromosome...
-fastafile = '/Users/rohamrazaghi/Downloads/chr1.fa'
 def make_fasta_index(fastafile):
 	if os.path.isfile(fastafile + '.python.fai'): 
 		print >>sys.stderr, 'fasta index exists, reading from file';
@@ -43,9 +42,7 @@ def read_chromosome(fastafile,offset_index,chrom_name):
 	line = File.readline(); print >>sys.stderr, chrom_name,offset_index[chrom_name],line[1:],
 	while 1: 
 		line = File.readline()
-		try: line[0]
-		except IndexError: break;
-		if line[0] == '>': break;
+		if line[0] == '>': break; 
 		else: sequences.append(line.strip('\n')); length += len(sequences[-1]);
 	File.close(); 
 	print >>sys.stderr, 'chromosome stats for',chrom_name,'length:',len(sequences),length;
@@ -54,6 +51,3 @@ def read_chromosome(fastafile,offset_index,chrom_name):
 
 #offset_index = make_fasta_index(sys.argv[1]); current_chrom = '-';
 
-# offset = make_fasta_index(fastafile)
-
-# [sequence, length] = read_chromosome('/Users/rohamrazaghi/Downloads/chr1.fa', offset, 'chr1')

@@ -22,21 +22,21 @@ else:
 	gene_name = sys.argv[1]; 
 	dbSNFP_file = gene_name + '.dbSNFP.data'; print >>sys.stderr, 'path',dbSNFP_file
 	if not os.path.isfile(dbSNFP_file):
-		# find chromosome for the gene
-		refseqfile = open('./refseq.genes.ncbi37','r');
-		for line in refseqfile:
-			tx = line.split();
+		# find chromosome for the gene 
+		refseqfile = open('/home/vbansal/CODE/JOINTCODE-coral/PYTHON-scripts/VCF-programs/refseq.genes.ncbi37','r');
+		for line in refseqfile: 
+			tx = line.split(); 
 			#print tx[12]
-			if tx[12] == gene_name: chromosome = tx[2]; print >>sys.stderr, chromosome, gene_name; break;
+			if tx[12] == gene_name: chromosome = tx[2]; print >>sys.stderr, chromosome, gene_name; break; 
 
-		## read the chromosome file for that gene
-		dirpath = "/Users/rohamrazaghi/Documents/data/dbNSFPv2.8/dbNSFP2.8_variant." + chromosome;
+		## read the chromosome file for that gene 
+		dirpath = "/media/drive2/Variant-call-datasets/dbNSFPv2.8.baylor/dbNSFP2.8_variant." + chromosome; 
 		f = open(dbSNFP_file,'a');
 		subprocess.call(["grep","#chr", dirpath],stdout=f);
 		f.close();
 
 		f = open(dbSNFP_file,'a');
-		#print dirpath,gene_name
+		#print dirpath,gene_name 
 		#subprocess.call(tabix_command,stdout=f);
 		subprocess.call(["grep",gene_name,dirpath],stdout=f);
 		f.close();

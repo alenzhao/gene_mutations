@@ -23,3 +23,6 @@ AAnames = {'A': 'Ala','I': 'Ile', 'L': 'Leu', 'V': 'Val', 'F': 'Phe', 'W': 'Trp'
 revcomp = {'A':'T', 'T':'A', 'C':'G', 'G':'C','a':'T', 't':'A', 'c':'G', 'g':'C', 'N':'N','n':'N' } 
 
 
+def rev_seq(seq):
+	revcomp = {'A':'T', 'T':'A', 'C':'G', 'G':'C','a':'T', 't':'A', 'c':'G', 'g':'C', 'N':'N','n':'N' }
+	return "".join([revcomp[base] for base in reversed(seq)])

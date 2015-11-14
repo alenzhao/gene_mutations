@@ -28,7 +28,7 @@ def possible_mutations(transcript):
             prob = mut_table[(trimer2, i)]
             acceptor_splice_mut_prob.append(prob)
     else:
-        acceptor_splice_mut_prob.append('.')
+        acceptor_splice_mut_prob.append(0)
 
     #print acceptor_splice_mut_prob
     if transcript[-3:-1] == 'GT':
@@ -42,7 +42,7 @@ def possible_mutations(transcript):
             prob = mut_table[(trimer2, i)]
             donor_splice_mut_prob.append(prob)
     else:
-        donor_splice_mut_prob.append('.')
+        donor_splice_mut_prob.append(0)
 
     #print donor_splice_mut_prob
     for i in range(3,len(transcript)-3,3):
